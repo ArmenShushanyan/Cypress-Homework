@@ -33,14 +33,15 @@ describe('Check DemoQa elements module', () => {
 
     it('Check buttons module', () => {
         cy.get('#item-4').click();
-        cy.get('#doubleClickBtn').dblclick().then(() => {
-            cy.get('#doubleClickMessage').should('exist').and('have.text', 'You have done a double click');
-        });
-        cy.get('#rightClickBtn').rightclick().then(() => {
-            cy.get('#rightClickMessage').should('exist').and('have.text', 'You have done a right click');
-        });
-        cy.get('[type=button]').last().click().then(() => {
-            cy.get('#dynamicClickMessage').should('exist').and('have.text', 'You have done a dynamic click');
-        });
+        
+        cy.get('#doubleClickBtn').dblclick();
+        cy.get('#doubleClickMessage').should('exist').and('have.text', 'You have done a double click');
+
+        cy.get('#rightClickBtn').rightclick();
+        cy.get('#rightClickMessage').should('exist').and('have.text', 'You have done a right click');
+        
+        cy.get('[type=button]').last().click();
+        cy.get('#dynamicClickMessage').should('exist').and('have.text', 'You have done a dynamic click');
+
     });
 });
